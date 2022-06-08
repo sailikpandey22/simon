@@ -5,7 +5,10 @@ var userClickedPattern = [];
 var gamePattern = [];
 
 var started = false;
+
 var level = 0;
+
+var highScore = 0;
 
 document.addEventListener("keydown", function () {
   if (!started) {
@@ -67,6 +70,10 @@ function checkAnswer(currentLevel) {
       }, 1000);
     }
   } else {
+    if (level > highScore) {
+      highScore = level;
+      $(".score").text("High Score = " + level);
+    }
     $("body").addClass("game-over");
     playSound("wrong");
     setTimeout(function () {
