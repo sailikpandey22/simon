@@ -15,6 +15,14 @@ document.addEventListener("keydown", function () {
   }
 });
 
+document.addEventListener("click", function () {
+  if (!started) {
+    $("#level-title").text("level " + level);
+    nextSequence();
+    started = true;
+  }
+});
+
 $(".btn").click(function () {
   var userChosenColour = $(this).attr("id");
   userClickedPattern.push(userChosenColour);
